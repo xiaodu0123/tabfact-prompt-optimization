@@ -1,0 +1,58 @@
+api_keys:
+  openai_api_key: "OPENAI_API_KEY_HERE"
+  langfuse_public_key: "LANGFUSE_PUBLIC_KEY_HERE"
+  langfuse_secret_key: "LANGFUSE_SECRET_KEY_HERE"
+
+paths:
+  models_dir: "./artifacts/models"
+  results_dir: "./artifacts/results"
+  logs_dir: "./logs"
+
+datasets:
+  tabfact:
+    train_path: "PATH_TO_TABFACT_TRAIN_JSON"
+    dev_path: "PATH_TO_TABFACT_DEV_JSON"
+    test_path: "PATH_TO_TABFACT_TEST_JSON"
+
+  scitab:
+    train_path: "PATH_TO_SCITAB_TRAIN_JSON"
+    dev_path: "PATH_TO_SCITAB_DEV_JSON"
+    test_path: "PATH_TO_SCITAB_TEST_JSON"
+
+  pubhealthtab:
+    train_path: "PATH_TO_PUBHEALTHTAB_TRAIN_JSON"
+    dev_path: "PATH_TO_PUBHEALTHTAB_DEV_JSON"
+    test_path: "PATH_TO_PUBHEALTHTAB_TEST_JSON"
+
+  hybrid:
+    train_path: "PATH_TO_HYBRID_TRAIN_JSON"
+    dev_path: "PATH_TO_HYBRID_DEV_JSON"
+
+  mmsci:
+    test_path: "PATH_TO_MMSCI_TEST_JSON"
+
+params:
+  tracking: "none"
+  port: 8000
+  max_iters: 5
+  num_threads: 1
+  optimiser: "miprov2"
+  seed: 0
+  seed_instruction: "Verify the given claim against the provided table data."
+
+optimisers:
+  copro:
+    breadth: 6
+    depth: 3
+    init_temperature: 1.2
+
+  miprov2:
+    auto_mode: "medium"
+
+  simba:
+    num_candidates: 6
+    max_steps: 8
+
+tracking:
+  mlflow_uri: "http://127.0.0.1:5000"
+  langfuse_host: "https://cloud.langfuse.com"
